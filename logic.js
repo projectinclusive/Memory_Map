@@ -25,6 +25,24 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Logo element not found');
   }
 
+  // Language toggle functionality
+  var langToggle = document.getElementById('langToggle');
+  var currentLang = 'zh'; // Default language is Chinese
+  
+  if (langToggle) {
+    langToggle.addEventListener('click', function() {
+      if (currentLang === 'zh') {
+        switchToEnglish();
+        langToggle.textContent = '中';
+        currentLang = 'en';
+      } else {
+        switchToChinese();
+        langToggle.textContent = 'Eng';
+        currentLang = 'zh';
+      }
+    });
+  }
+
   // Photo gallery horizontal scroll
   var gallery = document.getElementById('gallery');
   if (gallery) {
@@ -245,8 +263,20 @@ function updateTransform(element, scale, translateX, translateY) {
   element.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
 }
 
+// Language toggle functions
+function switchToEnglish() {
+  var elementsToTranslate = document.querySelectorAll('[data-en]');
+  elementsToTranslate.forEach(function(element) {
+    element.textContent = element.getAttribute('data-en');
+  });
+  console.log('Switched to English');
+}
 
-function updateTransform(element, scale, translateX, translateY) {
-  element.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+function switchToChinese() {
+  var elementsToTranslate = document.querySelectorAll('[data-zh]');
+  elementsToTranslate.forEach(function(element) {
+    element.textContent = element.getAttribute('data-zh');
+  });
+  console.log('Switched to Chinese');
 }
 

@@ -68,6 +68,28 @@ nav a:hover {
   color: #888;
 }
 
+.lang-toggle {
+  background: none;
+  border: 2px solid #333;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.lang-toggle:hover {
+  background: #333;
+  color: #fff;
+}
+
+.lang-toggle:active {
+  transform: scale(0.95);
+}
+
 .hero,
 .map00-section,
 .map01-section,
@@ -399,6 +421,11 @@ footer {
   
   .logo-text {
     font-size: 1.5rem;
+  }
+  
+  .lang-toggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 
   .project-info-section {
