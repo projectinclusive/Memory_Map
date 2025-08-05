@@ -1,3 +1,234 @@
-我認為整個長沙灣及深水埗區域，最鮮明的聲音來自車輛，以及裝修中的噪音，例如經常可以聽見鑽地的聲音。因此，我在地圖上畫了許多象徵鑽地的符號。而顏色的使用上，我有特別的分類：紅色表示我覺得極為不適的地方，黃色代表稍為嘈吵但尚可接受，而藍色則代表聽起來較為舒適的開放空間。例如在保安道街市樓下那一層，由於空間與街道打通，聲音更加流通，因此我認為那裡屬於比較開闊、舒適的聲音環境。
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記憶地圖 - 位置 A</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .text-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .memory-block {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #9b59b6;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #9b59b6;
+            margin-bottom: 15px;
+        }
+        
+        .memory-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .color-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .color-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .color-red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .color-yellow { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .color-blue { background: linear-gradient(135deg, #3498db, #2980b9); }
+        
+        .color-description {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .sound-symbol {
+            display: inline-block;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+        
+        .location-highlight {
+            background: linear-gradient(120deg, #74b9ff 0%, #0984e3 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .noise-type {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .color-legend {
+                grid-template-columns: 1fr;
+            }
+            
+            .memory-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">記憶地圖</h1>
+            <p class="subtitle">吳卓彥</p>
+        </div>
+        
+        <div class="content">
+            <div class="text-section">
+                <div class="memory-block">
+                    <div class="memory-number">🔊 區域聲音特徵</div>
+                    <div class="memory-text">
+                        我認為整個<span class="location-highlight">長沙灣及深水埗區域</span>，最鮮明的聲音來自<span class="noise-type">車輛</span>，以及<span class="noise-type">裝修中的噪音</span>，例如經常可以聽見<span class="noise-type">鑽地的聲音</span>。因此，我在地圖上畫了許多<span class="sound-symbol">象徵鑽地的符號</span>。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">🎨 聲音分類色彩系統</div>
+                    <div class="memory-text">
+                        而顏色的使用上，我有特別的分類：
+                    </div>
+                    
+                    <div class="color-legend">
+                        <div class="color-item">
+                            <div class="color-dot color-red"></div>
+                            <div class="color-description">
+                                <strong>紅色</strong> - 極為不適的地方
+                            </div>
+                        </div>
+                        
+                        <div class="color-item">
+                            <div class="color-dot color-yellow"></div>
+                            <div class="color-description">
+                                <strong>黃色</strong> - 稍為嘈吵但尚可接受
+                            </div>
+                        </div>
+                        
+                        <div class="color-item">
+                            <div class="color-dot color-blue"></div>
+                            <div class="color-description">
+                                <strong>藍色</strong> - 較為舒適的開放空間
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">🏪 舒適聲音環境實例</div>
+                    <div class="memory-text">
+                        例如在<span class="location-highlight">保安道街市樓下那一層</span>，由於空間與街道打通，聲音更加流通，因此我認為那裡屬於比較開闊、舒適的聲音環境。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
 

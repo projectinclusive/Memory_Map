@@ -1,5 +1,207 @@
-我印象較深的地點有兩處。第一個是在行至天橋的位置時，當時天氣十分炎熱，我感到疲累，本來已經有些許想返回家的念頭。然而當我抬頭一看，看見眼前非常美麗的景色，便決定繼續走下去。
-
-第二個地點位於我家附近的足球場。兒時我經常與朋友們在此踢球，當時總有一種希望能夠在附近讀書的心願。後來我真的如願以償，入讀了長天，但童年一起嬉戲的朋友們就漸漸不再出現了。如今大家各自忙於學業，再次踏進這個熟悉的足球場，內心不禁浮現出許多回憶和感觸。
-
-長天: 長沙灣天主教英文中學
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記憶地圖 - 李文皓</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .text-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .memory-block {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .memory-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .note {
+            background: #e8f5e8;
+            border: 1px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #2d5f3f;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .iframe-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .iframe-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .iframe-container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .iframe-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .iframe-container {
+                max-width: 100%;
+            }
+            
+            .memory-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">記憶地圖</h1>
+            <p class="subtitle">李文皓</p>
+        </div>
+        
+        <div class="content">
+            <div class="text-section">
+                <div class="memory-block">
+                    <div class="memory-number">📍 第一個印象深刻的地點</div>
+                    <div class="memory-text">
+                        在行至天橋的位置時，當時天氣十分炎熱，我感到疲累，本來已經有些許想返回家的念頭。然而當我抬頭一看，看見眼前非常美麗的景色，便決定繼續走下去。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">⚽ 第二個印象深刻的地點</div>
+                    <div class="memory-text">
+                        位於我家附近的足球場。兒時我經常與朋友們在此踢球，當時總有一種希望能夠在附近讀書的心願。後來我真的如願以償，入讀了長天，但童年一起嬉戲的朋友們就漸漸不再出現了。如今大家各自忙於學業，再次踏進這個熟悉的足球場，內心不禁浮現出許多回憶和感觸。
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <div class="note-title">📍 地點說明</div>
+                    <strong>長天</strong> = 長沙灣天主教英文中學
+                </div>
+            </div>
+            
+            <div class="iframe-section">
+                <h3 class="iframe-title">🌟 3D 體驗空間</h3>
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://lumalabs.ai/embed/5996d155-ef21-4998-bbe9-fc5d6e85111b?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" 
+                        title="記憶地圖 3D 體驗">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

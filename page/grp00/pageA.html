@@ -1,7 +1,182 @@
-我印象最深刻的地點就是這兩個內街的位置。由於這些地方屬於小巷，空間十分狹窄，檔口和路人緊密交織。很多時候剛下過雨，地上濕滑悶熱，這些場景正正代表着深水埗典型的景象與日常情境。
-
-我記錄了這些街道聲音：例如斬豬肉的聲音，我用粉紅色標示，因為聲音非常響亮；人群講價的聲音，比如「平啲啦！三十蚊啦，三十五蚊啦！」，我就用黃色標示，這些促銷對話正是深水埗這個平民區的寫照。
-
-此外，我也記錄了街頭廣播聲，例如外送平台的語音通知「Keeta 為你接咗一個新訂單」等，這些聲音穿透整條街，帶來強烈的聽覺印象。
-
-在保安道街市一帶，我畫上黃色線條代表孩童在公園走動時腳步與地面的聲音。那個地板鋪設的材料特殊，行走時會發出吱吱聲，與一般街道不一樣，我以散點的筆觸來表達。另外，那裡亦有乒乓球打擊的清脆聲音，這些聲音元素豐富了我對該區的聲景理解。
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .text-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .memory-block {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #e74c3c;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .memory-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .sound-highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #2d3436;
+        }
+        
+        .sound-pink {
+            background: linear-gradient(120deg, #fd79a8 0%, #fdcb6e 100%);
+        }
+        
+        .sound-yellow {
+            background: linear-gradient(120deg, #fdcb6e 0%, #e17055 100%);
+        }
+        
+        .quote {
+            font-style: italic;
+            font-weight: 500;
+            color: #636e72;
+            background: rgba(116, 185, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .location-tag {
+            display: inline-block;
+            background: #74b9ff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .memory-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">記憶地圖</h1>
+            <p class="subtitle">陳一平</p>
+        </div>
+        
+        <div class="content">
+            <div class="text-section">
+                <div class="memory-block">
+                    <div class="memory-number">🏘️ 內街印象</div>
+                    <div class="memory-text">
+                        我印象最深刻的地點就是這兩個內街的位置。由於這些地方屬於小巷，空間十分狹窄，檔口和路人緊密交織。很多時候剛下過雨，地上濕滑悶熱，這些場景正正代表着深水埗典型的景象與日常情境。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">🎵 街道聲音記錄</div>
+                    <div class="memory-text">
+                        我記錄了這些街道聲音：例如<span class="sound-highlight sound-pink">斬豬肉的聲音</span>，我用粉紅色標示，因為聲音非常響亮；人群講價的聲音，比如<span class="quote">「平啲啦！三十蚊啦，三十五蚊啦！」</span>，我就用<span class="sound-highlight sound-yellow">黃色標示</span>，這些促銷對話正是深水埗這個平民區的寫照。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">📢 廣播與科技聲音</div>
+                    <div class="memory-text">
+                        此外，我也記錄了街頭廣播聲，例如外送平台的語音通知<span class="quote">「Keeta 為你接咗一個新訂單」</span>等，這些聲音穿透整條街，帶來強烈的聽覺印象。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">🏓 保安道街市聲景</div>
+                    <div class="memory-text">
+                        <span class="location-tag">保安道街市</span>在保安道街市一帶，我畫上黃色線條代表孩童在公園走動時腳步與地面的聲音。那個地板鋪設的材料特殊，行走時會發出吱吱聲，與一般街道不一樣，我以散點的筆觸來表達。另外，那裡亦有<span class="sound-highlight">乒乓球打擊的清脆聲音</span>，這些聲音元素豐富了我對該區的聲景理解。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

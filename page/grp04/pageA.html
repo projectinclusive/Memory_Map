@@ -1,1 +1,173 @@
-我印象最深刻的地點是這一區域，主要因為這裡人流非常密集，予人擁擠逼促之感。當我走在這裡時，經常需要不斷在人群中穿梭，尤其這裡會傳來大量的人聲，四散不斷，令我有一種被聲音包圍的體驗。
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記憶地圖 - 位置 A</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .text-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .memory-block {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #e67e22;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        
+        .memory-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .crowd-highlight {
+            background: linear-gradient(120deg, #fd79a8 0%, #e84393 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .feeling-highlight {
+            background: linear-gradient(120deg, #fdcb6e 0%, #e17055 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .movement-highlight {
+            background: rgba(230, 126, 34, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #e67e22;
+        }
+        
+        .sound-experience {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .sensory-icon {
+            font-size: 2rem;
+            margin: 20px 0;
+            text-align: center;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .memory-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">記憶地圖</h1>
+            <p class="subtitle">鄭至堯</p>
+        </div>
+        
+        <div class="content">
+            <div class="text-section">
+                
+                <div class="memory-block">
+                    <div class="memory-number">🌊 密集人流印象</div>
+                    <div class="memory-text">
+                        我印象最深刻的地點是這一區域，主要因為這裡<span class="crowd-highlight">人流非常密集</span>，予人<span class="feeling-highlight">擁擠逼促之感</span>。
+                    </div>
+                </div>
+                
+                <div class="memory-block">
+                    <div class="memory-number">🚶‍♂️ 穿梭體驗</div>
+                    <div class="memory-text">
+                        當我走在這裡時，經常需要<span class="movement-highlight">不斷在人群中穿梭</span>，尤其這裡會傳來大量的人聲，四散不斷，令我有一種<span class="sound-experience">被聲音包圍的體驗</span>。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
