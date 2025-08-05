@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Interactive map images
   initInteractiveMaps();
+  
+  // Photo gallery modal functionality
+  initPhotoGallery();
 });
 
 function initInteractiveMaps() {
@@ -192,7 +195,6 @@ function openModal(pageUrl) {
     var header = document.createElement('div');
     header.className = 'modal-header';
     header.innerHTML = `
-      <span class="modal-title">${pageUrl}</span>
       <button class="modal-close">×</button>
     `;
     
@@ -278,5 +280,90 @@ function switchToChinese() {
     element.textContent = element.getAttribute('data-zh');
   });
   console.log('Switched to Chinese');
+}
+
+// Photo Gallery Modal Functions
+function initPhotoGallery() {
+  var photos = document.querySelectorAll('.gallery-photo');
+  var modal = document.getElementById('photoModal');
+  var modalImage = document.getElementById('modalImage');
+  var closeBtn = document.querySelector('.photo-modal-close');
+  var prevBtn = document.getElementById('prevPhoto');
+  var nextBtn = document.getElementById('nextPhoto');
+  var currentPhotoIndex = 0;
+  
+  // Convert NodeList to Array for easier handling
+  var photoArray = Array.from(photos);
+  
+  // Add click event to each photo
+  photos.forEach(function(photo, index) {
+    photo.addEventListener('click', function() {
+      currentPhotoIndex = index;
+      openPhotoModal(photo.src, photo.alt);
+    });
+  });
+  
+  // Close modal events
+  closeBtn.addEventListener('click', closePhotoModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closePhotoModal();
+    }
+  });
+  
+  // Navigation events
+  prevBtn.addEventListener('click', function() {
+    if (currentPhotoIndex > 0) {
+      currentPhotoIndex--;
+      updateModalPhoto();
+    }
+  });
+  
+  nextBtn.addEventListener('click', function() {
+    if (currentPhotoIndex < photoArray.length - 1) {
+      currentPhotoIndex++;
+      updateModalPhoto();
+    }
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (modal.style.display === 'block') {
+      if (e.key === 'Escape') {
+        closePhotoModal();
+      } else if (e.key === 'ArrowLeft' && currentPhotoIndex > 0) {
+        currentPhotoIndex--;
+        updateModalPhoto();
+      } else if (e.key === 'ArrowRight' && currentPhotoIndex < photoArray.length - 1) {
+        currentPhotoIndex++;
+        updateModalPhoto();
+      }
+    }
+  });
+  
+  function openPhotoModal(src, alt) {
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    updateNavigationButtons();
+  }
+  
+  function closePhotoModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  }
+  
+  function updateModalPhoto() {
+    var currentPhoto = photoArray[currentPhotoIndex];
+    modalImage.src = currentPhoto.src;
+    modalImage.alt = currentPhoto.alt;
+    updateNavigationButtons();
+  }
+  
+  function updateNavigationButtons() {
+    prevBtn.disabled = currentPhotoIndex === 0;
+    nextBtn.disabled = currentPhotoIndex === photoArray.length - 1;
+  }
 }
 
