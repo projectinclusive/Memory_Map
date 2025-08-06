@@ -135,6 +135,27 @@
             display: block;
         }
         
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -164,36 +185,40 @@
     </style>
 </head>
 <body>
+    <button class="language-toggle" id="langToggle">Eng</button>
+    
     <div class="container">
         <div class="header">
-            <h1 class="title">記憶地圖</h1>
-            <p class="subtitle">李文皓</p>
+            <h1 class="title" data-zh="記憶地圖" data-en="Memory Map">記憶地圖</h1>
+            <p class="subtitle" data-zh="李文皓" data-en="Lee Man Ho Maras">李文皓</p>
         </div>
         
         <div class="content">
             <div class="text-section">
                 <div class="memory-block">
-                    <div class="memory-number">📍 第一個印象深刻的地點</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="📍 第一個印象深刻的地點" data-en="📍 First Impressive Location">📍 第一個印象深刻的地點</div>
+                    <div class="memory-text" data-zh="在行至天橋的位置時，當時天氣十分炎熱，我感到疲累，本來已經有些許想返回家的念頭。然而當我抬頭一看，看見眼前非常美麗的景色，便決定繼續走下去。" data-en="At the location when walking onto the footbridge, the weather was very hot, and I felt tired, already somewhat inclined to return home. However, when I looked up and saw the very beautiful scenery before me, I decided to keep going.">
                         在行至天橋的位置時，當時天氣十分炎熱，我感到疲累，本來已經有些許想返回家的念頭。然而當我抬頭一看，看見眼前非常美麗的景色，便決定繼續走下去。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">⚽ 第二個印象深刻的地點</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="⚽ 第二個印象深刻的地點" data-en="⚽ Second Impressive Location">⚽ 第二個印象深刻的地點</div>
+                    <div class="memory-text" data-zh="位於我家附近的足球場。兒時我經常與朋友們在此踢球，當時總有一種希望能夠在附近讀書的心願。後來我真的如願以償，入讀了長天，但童年一起嬉戲的朋友們就漸漸不再出現了。如今大家各自忙於學業，再次踏進這個熟悉的足球場，內心不禁浮現出許多回憶和感觸。" data-en="The soccer field near my home. In my childhood, I often played soccer there with my friends, and I always had the wish to study nearby. Later, I truly fulfilled that wish by enrolling in Cheung Sha Wan Catholic English Secondary School. But the friends I played with in childhood gradually stopped appearing. Now, as everyone is busy with their studies, stepping into this familiar soccer field again naturally brings out many memories and feelings.">
                         位於我家附近的足球場。兒時我經常與朋友們在此踢球，當時總有一種希望能夠在附近讀書的心願。後來我真的如願以償，入讀了長天，但童年一起嬉戲的朋友們就漸漸不再出現了。如今大家各自忙於學業，再次踏進這個熟悉的足球場，內心不禁浮現出許多回憶和感觸。
                     </div>
                 </div>
                 
                 <div class="note">
-                    <div class="note-title">📍 地點說明</div>
-                    <strong>長天</strong> = 長沙灣天主教英文中學
+                    <div class="note-title" data-zh="📍 地點說明" data-en="📍 Location Note">📍 地點說明</div>
+                    <div data-zh="<strong>長天</strong> = 長沙灣天主教英文中學" data-en="<strong>Cheung Sha Wan Catholic English Secondary School</strong> (referred to as 長天 in Chinese)">
+                        <strong>長天</strong> = 長沙灣天主教英文中學
+                    </div>
                 </div>
             </div>
             
             <div class="iframe-section">
-                <h3 class="iframe-title">🌟 3D 體驗空間</h3>
+                <h3 class="iframe-title" data-zh="🌟 3D 體驗空間" data-en="🌟 3D Experience Space">🌟 3D 體驗空間</h3>
                 <div class="iframe-container">
                     <iframe 
                         src="https://lumalabs.ai/embed/5996d155-ef21-4998-bbe9-fc5d6e85111b?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" 
@@ -203,5 +228,53 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        let isEnglish = false;
+
+        function switchToEnglish() {
+            isEnglish = true;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+        }
+
+        function switchToChinese() {
+            isEnglish = false;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-zh');
+            });
+        }
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                switchToChinese();
+            } else {
+                switchToEnglish();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Check URL parameter for initial language
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang');
+            
+            if (initialLang === 'en') {
+                switchToEnglish();
+            } else {
+                switchToChinese();
+            }
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', function() {
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+// Global language state
+var currentLang = 'zh'; // Default language is Chinese
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM loaded');
   
@@ -27,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Language toggle functionality
   var langToggle = document.getElementById('langToggle');
-  var currentLang = 'zh'; // Default language is Chinese
   
   if (langToggle) {
     langToggle.addEventListener('click', function() {
@@ -105,7 +107,8 @@ function initInteractiveMaps() {
         
         // Open modal window for corresponding pages
         if (buttonType) {
-          openModal(`page/grp${groupNumber}/page${buttonType}.html`);
+          const pageUrl = `page/grp${groupNumber}/page${buttonType}.html?lang=${currentLang}`;
+          openModal(pageUrl);
         }
       });
     });
@@ -269,7 +272,9 @@ function updateTransform(element, scale, translateX, translateY) {
 function switchToEnglish() {
   var elementsToTranslate = document.querySelectorAll('[data-en]');
   elementsToTranslate.forEach(function(element) {
-    element.textContent = element.getAttribute('data-en');
+    var englishContent = element.getAttribute('data-en');
+    // Use innerHTML to preserve HTML tags like <br>
+    element.innerHTML = englishContent;
   });
   console.log('Switched to English');
 }
@@ -277,7 +282,9 @@ function switchToEnglish() {
 function switchToChinese() {
   var elementsToTranslate = document.querySelectorAll('[data-zh]');
   elementsToTranslate.forEach(function(element) {
-    element.textContent = element.getAttribute('data-zh');
+    var chineseContent = element.getAttribute('data-zh');
+    // Use innerHTML to preserve HTML tags like <br>
+    element.innerHTML = chineseContent;
   });
   console.log('Switched to Chinese');
 }

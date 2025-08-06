@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <title>記憶地圖 - 陳一平</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
@@ -120,6 +120,27 @@
             margin-right: 10px;
         }
         
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -140,43 +161,93 @@
     </style>
 </head>
 <body>
+    <button class="language-toggle" id="langToggle">Eng</button>
+    
     <div class="container">
         <div class="header">
-            <h1 class="title">記憶地圖</h1>
-            <p class="subtitle">陳一平</p>
+            <h1 class="title" data-zh="記憶地圖" data-en="Memory Map">記憶地圖</h1>
+            <p class="subtitle" data-zh="陳一平" data-en="Chan Yat Ping">陳一平</p>
         </div>
         
         <div class="content">
             <div class="text-section">
                 <div class="memory-block">
-                    <div class="memory-number">🏘️ 內街印象</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🏘️ 內街印象" data-en="🏘️ Inner Street Impressions">🏘️ 內街印象</div>
+                    <div class="memory-text" data-zh="我印象最深刻的地點就是這兩個內街的位置。由於這些地方屬於小巷，空間十分狹窄，檔口和路人緊密交織。很多時候剛下過雨，地上濕滑悶熱，這些場景正正代表着深水埗典型的景象與日常情境。" data-en="The two inner streets leave the deepest impression on me. Because these places are narrow alleys, the space is very tight, with stalls and pedestrians closely intertwined. Often, right after the rain, the ground becomes slippery and stuffy; these scenes perfectly represent the typical sights and daily situations of Sham Shui Po.">
                         我印象最深刻的地點就是這兩個內街的位置。由於這些地方屬於小巷，空間十分狹窄，檔口和路人緊密交織。很多時候剛下過雨，地上濕滑悶熱，這些場景正正代表着深水埗典型的景象與日常情境。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🎵 街道聲音記錄</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🎵 街道聲音記錄" data-en="🎵 Street Sound Recording">🎵 街道聲音記錄</div>
+                    <div class="memory-text" data-zh="我記錄了這些街道聲音：例如<span class=&quot;sound-highlight sound-pink&quot;>斬豬肉的聲音</span>，我用粉紅色標示，因為聲音非常響亮；人群講價的聲音，比如<span class=&quot;quote&quot;>「平啲啦！三十蚊啦，三十五蚊啦！」</span>，我就用<span class=&quot;sound-highlight sound-yellow&quot;>黃色標示</span>，這些促銷對話正是深水埗這個平民區的寫照。" data-en="I recorded the sounds of these streets: <span class=&quot;sound-highlight sound-pink&quot;>the sound of chopping pork</span>, which I marked in pink because it is very loud; the voices of people bargaining, such as <span class=&quot;quote&quot;>&quot;Cheaper! Thirty dollars, thirty-five dollars!&quot;</span> which I marked in <span class=&quot;sound-highlight sound-yellow&quot;>yellow</span>. These promotional conversations vividly reflect the character of Sham Shui Po as a working-class neighbourhood.">
                         我記錄了這些街道聲音：例如<span class="sound-highlight sound-pink">斬豬肉的聲音</span>，我用粉紅色標示，因為聲音非常響亮；人群講價的聲音，比如<span class="quote">「平啲啦！三十蚊啦，三十五蚊啦！」</span>，我就用<span class="sound-highlight sound-yellow">黃色標示</span>，這些促銷對話正是深水埗這個平民區的寫照。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">📢 廣播與科技聲音</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="📢 廣播與科技聲音" data-en="📢 Broadcasts & Technology Sounds">📢 廣播與科技聲音</div>
+                    <div class="memory-text" data-zh="此外，我也記錄了街頭廣播聲，例如外送平台的語音通知<span class=&quot;quote&quot;>「Keeta 為你接咗一個新訂單」</span>等，這些聲音穿透整條街，帶來強烈的聽覺印象。" data-en="Additionally, I recorded street broadcasts, such as voice notifications from delivery platforms like <span class=&quot;quote&quot;>&quot;KEETA has received a new order for you.&quot;</span> These sounds penetrate the entire street and leave a strong auditory impression.">
                         此外，我也記錄了街頭廣播聲，例如外送平台的語音通知<span class="quote">「Keeta 為你接咗一個新訂單」</span>等，這些聲音穿透整條街，帶來強烈的聽覺印象。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🏓 保安道街市聲景</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🏓 保安道街市聲景" data-en="🏓 Po On Road Market Soundscape">🏓 保安道街市聲景</div>
+                    <div class="memory-text" data-zh="<span class=&quot;location-tag&quot;>保安道街市</span>在保安道街市一帶，我畫上黃色線條代表孩童在公園走動時腳步與地面的聲音。那個地板鋪設的材料特殊，行走時會發出吱吱聲，與一般街道不一樣，我以散點的筆觸來表達。另外，那裡亦有<span class=&quot;sound-highlight&quot;>乒乓球打擊的清脆聲音</span>，這些聲音元素豐富了我對該區的聲景理解。" data-en="Near the <span class=&quot;location-tag&quot;>Po On Road Market</span>, I drew yellow lines to represent the sound of children's footsteps and their contact with the special floor material in the park. The flooring there is unique and produces creaking sounds when walked upon, different from ordinary streets, so I expressed this with scattered brushstrokes. Also, <span class=&quot;sound-highlight&quot;>the crisp sound of ping-pong ball hits</span> there enriches my understanding of the soundscape in this area.">
                         <span class="location-tag">保安道街市</span>在保安道街市一帶，我畫上黃色線條代表孩童在公園走動時腳步與地面的聲音。那個地板鋪設的材料特殊，行走時會發出吱吱聲，與一般街道不一樣，我以散點的筆觸來表達。另外，那裡亦有<span class="sound-highlight">乒乓球打擊的清脆聲音</span>，這些聲音元素豐富了我對該區的聲景理解。
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        let isEnglish = false;
+
+        function switchToEnglish() {
+            isEnglish = true;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+        }
+
+        function switchToChinese() {
+            isEnglish = false;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-zh');
+            });
+        }
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                switchToChinese();
+            } else {
+                switchToEnglish();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Check URL parameter for initial language
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang');
+            
+            if (initialLang === 'en') {
+                switchToEnglish();
+            } else {
+                switchToChinese();
+            }
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', function() {
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

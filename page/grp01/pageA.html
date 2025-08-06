@@ -150,6 +150,27 @@
             color: #c0392b;
         }
         
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+        }
+        
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -174,45 +195,47 @@
     </style>
 </head>
 <body>
+    <button class="language-toggle" id="langToggle">Eng</button>
+    
     <div class="container">
         <div class="header">
-            <h1 class="title">記憶地圖</h1>
-            <p class="subtitle">吳卓彥</p>
+            <h1 class="title" data-zh="記憶地圖" data-en="Memory Map">記憶地圖</h1>
+            <p class="subtitle" data-zh="吳卓彥" data-en="Ng Cheuk Yin">吳卓彥</p>
         </div>
         
         <div class="content">
             <div class="text-section">
                 <div class="memory-block">
-                    <div class="memory-number">🔊 區域聲音特徵</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🔊 區域聲音特徵" data-en="🔊 Regional Sound Characteristics">🔊 區域聲音特徵</div>
+                    <div class="memory-text" data-zh="我認為整個<span class=&quot;location-highlight&quot;>長沙灣及深水埗區域</span>，最鮮明的聲音來自<span class=&quot;noise-type&quot;>車輛</span>，以及<span class=&quot;noise-type&quot;>裝修中的噪音</span>，例如經常可以聽見<span class=&quot;noise-type&quot;>鑽地的聲音</span>。因此，我在地圖上畫了許多<span class=&quot;sound-symbol&quot;>象徵鑽地的符號</span>。" data-en="I think the most distinctive sounds in the entire <span class=&quot;location-highlight&quot;>Cheung Sha Wan and Sham Shui Po areas</span> come from <span class=&quot;noise-type&quot;>vehicles</span> and <span class=&quot;noise-type&quot;>noise during renovations</span>, such as the frequent <span class=&quot;noise-type&quot;>drilling sounds</span>. Therefore, I drew many <span class=&quot;sound-symbol&quot;>symbols representing drilling</span> on the map.">
                         我認為整個<span class="location-highlight">長沙灣及深水埗區域</span>，最鮮明的聲音來自<span class="noise-type">車輛</span>，以及<span class="noise-type">裝修中的噪音</span>，例如經常可以聽見<span class="noise-type">鑽地的聲音</span>。因此，我在地圖上畫了許多<span class="sound-symbol">象徵鑽地的符號</span>。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🎨 聲音分類色彩系統</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🎨 聲音分類色彩系統" data-en="🎨 Sound Classification Color System">🎨 聲音分類色彩系統</div>
+                    <div class="memory-text" data-zh="而顏色的使用上，我有特別的分類：" data-en="Regarding the use of colors, I have a special classification:">
                         而顏色的使用上，我有特別的分類：
                     </div>
                     
                     <div class="color-legend">
                         <div class="color-item">
                             <div class="color-dot color-red"></div>
-                            <div class="color-description">
+                            <div class="color-description" data-zh="<strong>紅色</strong> - 極為不適的地方" data-en="<strong>Red</strong> - Places I find extremely uncomfortable">
                                 <strong>紅色</strong> - 極為不適的地方
                             </div>
                         </div>
                         
                         <div class="color-item">
                             <div class="color-dot color-yellow"></div>
-                            <div class="color-description">
+                            <div class="color-description" data-zh="<strong>黃色</strong> - 稍為嘈吵但尚可接受" data-en="<strong>Yellow</strong> - Somewhat noisy but still acceptable areas">
                                 <strong>黃色</strong> - 稍為嘈吵但尚可接受
                             </div>
                         </div>
                         
                         <div class="color-item">
                             <div class="color-dot color-blue"></div>
-                            <div class="color-description">
+                            <div class="color-description" data-zh="<strong>藍色</strong> - 較為舒適的開放空間" data-en="<strong>Blue</strong> - More comfortable, open spaces">
                                 <strong>藍色</strong> - 較為舒適的開放空間
                             </div>
                         </div>
@@ -220,14 +243,62 @@
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🏪 舒適聲音環境實例</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🏪 舒適聲音環境實例" data-en="🏪 Example of Comfortable Sound Environment">🏪 舒適聲音環境實例</div>
+                    <div class="memory-text" data-zh="例如在<span class=&quot;location-highlight&quot;>保安道街市樓下那一層</span>，由於空間與街道打通，聲音更加流通，因此我認為那裡屬於比較開闊、舒適的聲音環境。" data-en="For example, the <span class=&quot;location-highlight&quot;>level beneath the Po On Road Market</span>, where the space connects with the street and sound flows more freely, is considered a relatively open and comfortable sound environment.">
                         例如在<span class="location-highlight">保安道街市樓下那一層</span>，由於空間與街道打通，聲音更加流通，因此我認為那裡屬於比較開闊、舒適的聲音環境。
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        let isEnglish = false;
+
+        function switchToEnglish() {
+            isEnglish = true;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+        }
+
+        function switchToChinese() {
+            isEnglish = false;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-zh');
+            });
+        }
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                switchToChinese();
+            } else {
+                switchToEnglish();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Check URL parameter for initial language
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang');
+            
+            if (initialLang === 'en') {
+                switchToEnglish();
+            } else {
+                switchToChinese();
+            }
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', function() {
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 

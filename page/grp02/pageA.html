@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <title>記憶地圖 - 林曉暉</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
@@ -142,6 +142,27 @@
             opacity: 0.7;
         }
         
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -162,42 +183,94 @@
     </style>
 </head>
 <body>
+    <button class="language-toggle" id="langToggle">Eng</button>
+    
     <div class="container">
         <div class="header">
-            <h1 class="title">記憶地圖</h1>
-            <p class="subtitle">林曉暉</p>
+            <h1 class="title" data-zh="記憶地圖" data-en="Memory Map">記憶地圖</h1>
+            <p class="subtitle" data-zh="林曉暉" data-en="Lam Hiu Fai Elvis">林曉暉</p>
         </div>
         
         <div class="content">
             <div class="text-section">
                 
                 <div class="memory-block">
-                    <div class="memory-number">💝 最深情感共鳴</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="💝 最深情感共鳴" data-en="💝 Deepest Emotional Resonance">💝 最深情感共鳴</div>
+                    <div class="memory-text" data-zh="若要我選擇一個<span class=&quot;emotional-highlight&quot;>最讓我產生情感共鳴的地點</span>，那就是位於<span class=&quot;location-tag&quot;>長天</span>的十字路口。" data-en="The <span class=&quot;location-tag&quot;>crossroads at Cheung Sha Wan Catholic Secondary School</span> are the place that <span class=&quot;emotional-highlight&quot;>resonates with me the most</span>.">
                         若要我選擇一個<span class="emotional-highlight">最讓我產生情感共鳴的地點</span>，那就是位於<span class="location-tag">長天</span>的十字路口。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🚶‍♂️ 多年穿梭的足跡</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🚶‍♂️ 多年穿梭的足跡" data-en="🚶‍♂️ Years of Weaving Through">🚶‍♂️ 多年穿梭的足跡</div>
+                    <div class="memory-text" data-zh="多年來我經常經過這裡，不論是<span class=&quot;activity-highlight&quot;>出外用膳</span>，或是<span class=&quot;activity-highlight&quot;>陪伴家人購物</span>，總是在這條街道上穿梭。" data-en="Over the years, I have often passed through here, whether <span class=&quot;activity-highlight&quot;>going out to eat</span> or <span class=&quot;activity-highlight&quot;>accompanying my family for shopping</span>, I find myself weaving along this street.">
                         多年來我經常經過這裡，不論是<span class="activity-highlight">出外用膳</span>，或是<span class="activity-highlight">陪伴家人購物</span>，總是在這條街道上穿梭。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">👫 人際交流時光</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="👫 人際交流時光" data-en="👫 Social Interaction Moments">👫 人際交流時光</div>
+                    <div class="memory-text" data-zh="有時也會碰到一些在學校參與訓練或活動的朋友，大家便會停下來<span class=&quot;activity-highlight&quot;>寒暄、聊天</span>。這條路凝聚了我許多<span class=&quot;memory-collection&quot;>生活片段與人際交流的記憶</span>，給我留下深刻印象。" data-en="Sometimes, I run into friends from school who are taking part in training or activities, and we stop to <span class=&quot;activity-highlight&quot;>greet each other and chat</span>. This street holds many <span class=&quot;memory-collection&quot;>fragments of my life and memories of social interactions</span>, leaving a deep and lasting impression on me.">
                         有時也會碰到一些在學校參與訓練或活動的朋友，大家便會停下來<span class="activity-highlight">寒暄、聊天</span>。這條路凝聚了我許多<span class="memory-collection">生活片段與人際交流的記憶</span>，給我留下深刻印象。
                     </div>
                 </div>
                 
                 <div class="note">
-                    <div class="note-title">📍 地點說明</div>
-                    <strong>長天</strong> = 長沙灣天主教英文中學
+                    <div class="note-title" data-zh="📍 地點說明" data-en="📍 Location Note">📍 地點說明</div>
+                    <div data-zh="<strong>長天</strong> = 長沙灣天主教英文中學" data-en="<strong>Cheung Sha Wan Catholic Secondary School</strong> (referred to as 長天 in Chinese)">
+                        <strong>長天</strong> = 長沙灣天主教英文中學
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        let isEnglish = false;
+
+        function switchToEnglish() {
+            isEnglish = true;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+        }
+
+        function switchToChinese() {
+            isEnglish = false;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-zh');
+            });
+        }
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                switchToChinese();
+            } else {
+                switchToEnglish();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Check URL parameter for initial language
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang');
+            
+            if (initialLang === 'en') {
+                switchToEnglish();
+            } else {
+                switchToChinese();
+            }
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', function() {
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

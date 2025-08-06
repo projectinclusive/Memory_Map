@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>記憶地圖 - 位置 A</title>
+    <title>記憶地圖 - 鄭至堯</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft YaHei', sans-serif;
@@ -124,6 +124,27 @@
             opacity: 0.7;
         }
         
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -144,30 +165,80 @@
     </style>
 </head>
 <body>
+    <button class="language-toggle" id="langToggle">Eng</button>
+    
     <div class="container">
         <div class="header">
-            <h1 class="title">記憶地圖</h1>
-            <p class="subtitle">鄭至堯</p>
+            <h1 class="title" data-zh="記憶地圖" data-en="Memory Map">記憶地圖</h1>
+            <p class="subtitle" data-zh="鄭至堯" data-en="Cheng Chi Yiu">鄭至堯</p>
         </div>
         
         <div class="content">
             <div class="text-section">
                 
                 <div class="memory-block">
-                    <div class="memory-number">🌊 密集人流印象</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🌊 密集人流印象" data-en="🌊 Dense Crowd Impression">🌊 密集人流印象</div>
+                    <div class="memory-text" data-zh="我印象最深刻的地點是這一區域，主要因為這裡<span class=&quot;crowd-highlight&quot;>人流非常密集</span>，予人<span class=&quot;feeling-highlight&quot;>擁擠逼促之感</span>。" data-en="The place that impressed me the most in this area is mainly because it is <span class=&quot;crowd-highlight&quot;>very crowded</span>, giving a sense of <span class=&quot;feeling-highlight&quot;>congestion and tightness</span>.">
                         我印象最深刻的地點是這一區域，主要因為這裡<span class="crowd-highlight">人流非常密集</span>，予人<span class="feeling-highlight">擁擠逼促之感</span>。
                     </div>
                 </div>
                 
                 <div class="memory-block">
-                    <div class="memory-number">🚶‍♂️ 穿梭體驗</div>
-                    <div class="memory-text">
+                    <div class="memory-number" data-zh="🚶‍♂️ 穿梭體驗" data-en="🚶‍♂️ Weaving Experience">🚶‍♂️ 穿梭體驗</div>
+                    <div class="memory-text" data-zh="當我走在這裡時，經常需要<span class=&quot;movement-highlight&quot;>不斷在人群中穿梭</span>，尤其這裡會傳來大量的人聲，四散不斷，令我有一種<span class=&quot;sound-experience&quot;>被聲音包圍的體驗</span>。" data-en="When I walk here, I often need to <span class=&quot;movement-highlight&quot;>weave through the crowd continuously</span>. Especially, there is a large amount of scattered voices, creating an <span class=&quot;sound-experience&quot;>experience of being surrounded by sound</span>.">
                         當我走在這裡時，經常需要<span class="movement-highlight">不斷在人群中穿梭</span>，尤其這裡會傳來大量的人聲，四散不斷，令我有一種<span class="sound-experience">被聲音包圍的體驗</span>。
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        let isEnglish = false;
+
+        function switchToEnglish() {
+            isEnglish = true;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+        }
+
+        function switchToChinese() {
+            isEnglish = false;
+            const elements = document.querySelectorAll('[data-zh]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-zh');
+            });
+        }
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                switchToChinese();
+            } else {
+                switchToEnglish();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Check URL parameter for initial language
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang');
+            
+            if (initialLang === 'en') {
+                switchToEnglish();
+            } else {
+                switchToChinese();
+            }
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', function() {
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
