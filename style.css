@@ -218,6 +218,47 @@ nav a:hover {
   transform: scale(1.05);
 }
 
+/* Add more space after photo gallery */
+.photo-gallery {
+  margin-bottom: 5rem;
+}
+
+/* Embedded Video Section */
+.embedded-video-section {
+  text-align: center;
+  margin: 2rem auto 1.5rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.embedded-video-section h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.video-embed-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.video-embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -237,7 +278,7 @@ nav a:hover {
 
 .project-info-section {
   background: #ffffff;
-  padding: 4rem 2vw;
+  padding: 2.5rem 2vw;
   text-align: center;
 }
 
@@ -283,7 +324,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 0rem;
 }
 
 .supporters-layer {
