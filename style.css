@@ -378,6 +378,26 @@ nav a:hover {
   text-align: center;
 }
 
+.inline-names {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.inline-names span {
+  margin: 0 1rem;
+  display: inline-block;
+}
+
+.inline-names span:first-child {
+  margin-left: 0;
+}
+
+.inline-names span:last-child {
+  margin-right: 0;
+}
+
 .supporter-logo {
   max-height: 60px;
   max-width: 200px;

@@ -13,11 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Logo clicked');
       e.preventDefault();
       
-      // Force scroll to absolute top (0,0)
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       
-      // Also use smooth scroll as backup
       window.scrollTo({
         top: 0,
         left: 0,
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Logo element not found');
   }
 
-  // Language toggle functionality
   var langToggle = document.getElementById('langToggle');
   
   if (langToggle) {
@@ -45,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Photo gallery horizontal scroll
   var gallery = document.getElementById('gallery');
   if (gallery) {
     gallery.addEventListener('wheel', function(e) {
@@ -56,10 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Interactive map images
   initInteractiveMaps();
-  
-  // Photo gallery modal functionality
   initPhotoGallery();
 });
 
