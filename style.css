@@ -360,6 +360,18 @@ nav a:hover {
   text-align: center;
 }
 
+.supporters-layer.sponsorship-managed h3 {
+  margin-bottom: 2rem;
+}
+
+.supporters-layer.sponsorship-managed {
+  margin-bottom: 3rem;
+}
+
+.supporters-layer.co-presented-by li {
+  margin-bottom: 2rem;
+}
+
 .supporters-column ul,
 .supporters-layer ul {
   list-style: none;
@@ -409,13 +421,28 @@ nav a:hover {
 }
 
 .supporter-logo-large {
-  max-height: 80px;
+  max-height: 240px;
+  max-width: 800px;
+}
+
+.supporter-logo-1-5x {
+  max-height: 90px;
   max-width: 300px;
 }
 
-.supporter-logo-xl {
+.supporter-logo-2x {
   max-height: 120px;
   max-width: 400px;
+}
+
+.supporter-logo-4x {
+  max-height: 240px;
+  max-width: 800px;
+}
+
+.supporter-logo-2-67x {
+  max-height: 160px;
+  max-width: 533px;
 }
 
 .supporter-logo-uniform {
