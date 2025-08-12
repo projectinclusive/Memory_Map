@@ -430,9 +430,39 @@ nav a:hover {
   max-width: 300px;
 }
 
+.supporter-logo-1-75x {
+  max-height: 105px;
+  max-width: 350px;
+}
+
+.supporter-logo-1-7x {
+  max-height: 102px;
+  max-width: 340px;
+}
+
+.supporter-logo-1-8x {
+  max-height: 108px;
+  max-width: 360px;
+}
+
+.supporter-logo-1-85x {
+  max-height: 111px;
+  max-width: 370px;
+}
+
+.supporter-logo-1-3x {
+  max-height: 78px;
+  max-width: 260px;
+}
+
 .supporter-logo-2x {
   max-height: 120px;
   max-width: 400px;
+}
+
+.supporter-logo-3x {
+  max-height: 180px;
+  max-width: 600px;
 }
 
 .supporter-logo-4x {
@@ -443,6 +473,11 @@ nav a:hover {
 .supporter-logo-2-67x {
   max-height: 160px;
   max-width: 533px;
+}
+
+.supporter-logo-2-25x {
+  max-height: 135px;
+  max-width: 450px;
 }
 
 .supporter-logo-uniform {
