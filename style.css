@@ -96,6 +96,14 @@ nav a:hover {
   text-align: center;
 }
 
+.map-btn-logo {
+  width: 134px;
+  height: 134px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .team-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
@@ -443,6 +451,11 @@ nav a:hover {
 .supporter-logo-1-8x {
   max-height: 108px;
   max-width: 360px;
+}
+
+.supporter-logo-0-9x {
+  max-height: 97px;
+  max-width: 324px;
 }
 
 .supporter-logo-1-85x {
